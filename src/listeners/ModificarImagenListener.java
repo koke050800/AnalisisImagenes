@@ -6,6 +6,7 @@
 package listeners;
 
 import gui.JFramePrincipal;
+import gui.JInternalFrameBinario;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameModificar;
 import java.awt.Color;
@@ -110,15 +111,23 @@ public class ModificarImagenListener implements ActionListener{
                 }
             }
             Image nueva = herramientas.HerramientasImagen.toImage(bi);
-
-            //internal.setImagen(nueva2);
-
             /* crear el nuevo*/
             JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
             nuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(nuevo);
 
         }
+        
+        
+        if (item.getText().equals("Imagen Binaria")) {        
+            
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+    
+            JInternalFrameBinario internalNuevo = new JInternalFrameBinario(internal, this.framePrincipal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo); 
+        }
+        
 
     }
 

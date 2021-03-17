@@ -19,27 +19,46 @@ import org.jfree.chart.ChartColor;
 public class JInternalFrameBinario extends javax.swing.JInternalFrame {
 
     private JInternalFrameImagen internal;
+    private JFramePrincipal framePrincipal;
+    private Image imagenRecortada;
+    int x1;
+    int x2;
+    int y1;
+    int y2;
     /**
      * Creates new form JInternalFrameBinario
      */
-    public JInternalFrameBinario(JInternalFrameImagen internal) {
-        
+    public JInternalFrameBinario(JInternalFrameImagen internal, JFramePrincipal framePrincipal) {
+
         this.internal = internal;
+        this.framePrincipal = framePrincipal;
+
         initComponents();
         int u = this.jSlider1.getValue();
         this.jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
-                Color color;
-                for(int j = 0 ; j< bi.getWidth();j++){
-                    for(int m = 0 ; m < bi.getHeight();m++){
-                        color = new Color(bi.getRGB(j, m));
-                        //¿ que tenemos que hacer para reducir de 24 a 2? en base a u
+                BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
+                for (int x = 0; x < bi.getWidth(); x++) {
+                    for (int y = 0; y < bi.getHeight(); y++) {
+                        //Obtiene el color
+                        Color c1 = new Color(bi.getRGB(x, y));
+                        //Calcula la media de tonalidades
+                        int med = (c1.getRed() + c1.getGreen() + c1.getBlue());
+                        if (med >= 382) {
+                            //Almacena el color en la imagen destino
+                            bi.setRGB(x, y, Color.WHITE.getRGB());
+                        } else {
+                            bi.setRGB(x, y, 0);
+                        }
+
                     }
                 }
                 Image nueva = herramientas.HerramientasImagen.toImage(bi);
-                internal.setImagen(nueva); 
+                /* crear el nuevo*/
+                JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
+                nuevo.setVisible(true);
+                framePrincipal.getjDesktopPanePrincipal().add(nuevo);
             }
         });
     }
@@ -53,15 +72,12 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSlider1 = new javax.swing.JSlider();
         jButton1 = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
 
         setTitle("Imagen Binarizada");
 
-        jSlider1.setMaximum(255);
-        jSlider1.setValue(15);
-
-        jButton1.setText("Convertir");
+        jButton1.setText("Convertir a binario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -72,19 +88,21 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(7, 7, 7)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         pack();
