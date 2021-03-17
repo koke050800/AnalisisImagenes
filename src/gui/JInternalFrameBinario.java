@@ -21,10 +21,8 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
     private JInternalFrameImagen internal;
     private JFramePrincipal framePrincipal;
     private Image imagenRecortada;
-    int x1;
-    int x2;
-    int y1;
-    int y2;
+    int valorSlider = 128;
+
     /**
      * Creates new form JInternalFrameBinario
      */
@@ -34,18 +32,21 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
         this.framePrincipal = framePrincipal;
 
         initComponents();
-        int u = this.jSlider1.getValue();
+        
+        
         this.jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
                 for (int x = 0; x < bi.getWidth(); x++) {
                     for (int y = 0; y < bi.getHeight(); y++) {
                         //Obtiene el color
                         Color c1 = new Color(bi.getRGB(x, y));
                         //Calcula la media de tonalidades
-                        int med = (c1.getRed() + c1.getGreen() + c1.getBlue());
-                        if (med >= 382) {
+                        int med = (c1.getRed() + c1.getGreen() + c1.getBlue())/3;
+                        //System.out.println(med+"  u-->"+u );
+                        if (med >= valorSlider) {
                             //Almacena el color en la imagen destino
                             bi.setRGB(x, y, Color.WHITE.getRGB());
                         } else {
@@ -84,6 +85,18 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             }
         });
 
+        jSlider1.setMajorTickSpacing(32);
+        jSlider1.setMaximum(255);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setToolTipText("");
+        jSlider1.setValue(128);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,7 +115,7 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,6 +124,10 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        valorSlider = this.jSlider1.getValue();        
+    }//GEN-LAST:event_jSlider1StateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
