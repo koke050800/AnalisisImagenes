@@ -91,7 +91,7 @@ public class ModificarImagenListener implements ActionListener{
 
         }
 
-        if (item.getText().equals("Blanco y Negro")) {
+       /* if (item.getText().equals("Blanco y Negro")) {
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
 
             BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
@@ -111,12 +111,12 @@ public class ModificarImagenListener implements ActionListener{
                 }
             }
             Image nueva = herramientas.HerramientasImagen.toImage(bi);
-            /* crear el nuevo*/
+            //crear el nuevo
             JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
             nuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(nuevo);
 
-        }
+        }*/
         
         
         if (item.getText().equals("Imagen Binaria")) {        
