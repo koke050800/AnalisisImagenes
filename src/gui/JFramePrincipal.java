@@ -27,7 +27,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         
         //para los filtros
         this.jMenuItem6.addActionListener(new ModificarImagenListener(this));
-        this.jMenuItem8.addActionListener(new ModificarImagenListener(this));
         this.jMenuItem9.addActionListener(new ModificarImagenListener(this));
         this.jMenuItem10.addActionListener(new ModificarImagenListener(this));
     }
@@ -51,7 +50,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
@@ -89,9 +87,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenuItem6.setText("Escala de Grises");
         jMenu2.add(jMenuItem6);
-
-        jMenuItem8.setText("Blanco y Negro");
-        jMenu2.add(jMenuItem8);
 
         jMenuItem10.setText("Imagen Binaria");
         jMenu2.add(jMenuItem10);
@@ -161,7 +156,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 
