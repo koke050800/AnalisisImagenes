@@ -5,6 +5,7 @@
  */
 package listeners;
 
+import espacial.Histograma;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
 import gui.JInternalFrameImagen;
@@ -125,9 +126,18 @@ public class ModificarImagenListener implements ActionListener{
     
             JInternalFrameBinario internalNuevo = new JInternalFrameBinario(internal, this.framePrincipal);
             internalNuevo.setVisible(true);
-            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo); 
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
-        
+
+        if (item.getText().equals("Histograma")) {
+            
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Histograma h1 = new Histograma(internal.getImagenOriginal());
+            h1.calcularHistogramas();
+            h1.graficar();
+
+           
+        }
 
     }
 

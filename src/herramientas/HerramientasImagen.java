@@ -75,5 +75,10 @@ public class HerramientasImagen {
         
         return bi;
     }
+
+    public static Image copiarImagen(Image i) {
+        BufferedImage bi = toBufferedImage(i);
+        return bi.getScaledInstance(bi.getWidth(),bi.getHeight(), BufferedImage.TYPE_INT_RGB);
+    }
     
 }

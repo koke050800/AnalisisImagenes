@@ -22,6 +22,9 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
     private JFramePrincipal framePrincipal;
     private Image imagenRecortada;
     int valorSlider = 128;
+    
+    
+    private Image imagenOriginal;
 
     /**
      * Creates new form JInternalFrameBinario
@@ -30,11 +33,12 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
 
         this.internal = internal;
         this.framePrincipal = framePrincipal;
+        
 
         initComponents();
         
         
-        this.jButton1.addActionListener(new ActionListener() {
+      /* this.jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
@@ -56,10 +60,37 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
                     }
                 }
                 Image nueva = herramientas.HerramientasImagen.toImage(bi);
-                /* crear el nuevo*/
+                // crear el nuevo
                 JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
                 nuevo.setVisible(true);
                 framePrincipal.getjDesktopPanePrincipal().add(nuevo);
+            }
+        });*/
+        
+        
+        
+        
+       this.imagenOriginal = herramientas.HerramientasImagen.copiarImagen(internal.getImagenOriginal());
+        this.jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               int u = jSlider1.getValue();
+               BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
+                Color color;
+                for(int j = 0 ; j< bi.getWidth();j++){
+                    for(int m = 0 ; m < bi.getHeight();m++){
+                        color = new Color(bi.getRGB(j, m));
+                        double v = (color.getRed()+color.getGreen()+color.getBlue())/3;
+                        if(v>=u){
+                            bi.setRGB(j, m,Color.WHITE.getRGB());
+                        }else{
+                            bi.setRGB(j, m,Color.BLACK.getRGB());
+                        }
+                    }
+                }
+                Image nueva = herramientas.HerramientasImagen.toImage(bi);
+                internal.setImagen(nueva);
+                System.out.println(u);
             }
         });
     }

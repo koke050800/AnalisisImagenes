@@ -36,7 +36,7 @@ public class AnalisisImagenes20212 {
         h1.calcularHistogramas();
         h1.graficar();
 
-        Image imagen2 = herramientas.HerramientasImagen.abrirImagen();
+        /*Image imagen2 = herramientas.HerramientasImagen.abrirImagen();
         Histograma h2 = new Histograma(imagen2);
         h2.calcularHistogramas();
         h2.graficar();
@@ -44,7 +44,7 @@ public class AnalisisImagenes20212 {
         Image imagen3 = herramientas.HerramientasImagen.abrirImagen();
         Histograma h3 = new Histograma(imagen3);
         h3.calcularHistogramas();
-        h3.graficar();
+        h3.graficar();*/
 
     }
 
