@@ -8,6 +8,7 @@ package listeners;
 import espacial.Histograma;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
+import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameModificar;
 import java.awt.Color;
@@ -136,9 +137,17 @@ public class ModificarImagenListener implements ActionListener{
             h1.calcularHistogramas();
             h1.graficar();
 
-           
         }
 
+        if (item.getText().equals("Modificar Iluminación")) {
+
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+
+            JInternalFrameIluminacion internalNuevo = new JInternalFrameIluminacion(internal, this.framePrincipal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
     }
 
 }

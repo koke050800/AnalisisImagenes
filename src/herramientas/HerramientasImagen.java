@@ -80,5 +80,15 @@ public class HerramientasImagen {
         BufferedImage bi = toBufferedImage(i);
         return bi.getScaledInstance(bi.getWidth(),bi.getHeight(), BufferedImage.TYPE_INT_RGB);
     }
+
+    public static int verificarNivelRGB(int valor) {
+        if (valor > 255) {
+            return 255;
+        }
+        if (valor < 0) {
+            return 0;
+        }
+        return valor;
+    }
     
 }
