@@ -16,7 +16,7 @@ import org.jfree.chart.ChartColor;
  *
  * @author working
  */
-public class JInternalFrameBinario extends javax.swing.JInternalFrame {
+public class JInternalFrameBinario2Slider extends javax.swing.JInternalFrame {
 
     private JInternalFrameImagen internal;
     private JFramePrincipal framePrincipal;
@@ -29,68 +29,38 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
     /**
      * Creates new form JInternalFrameBinario
      */
-    public JInternalFrameBinario(JInternalFrameImagen internal, JFramePrincipal framePrincipal) {
+    public JInternalFrameBinario2Slider(JInternalFrameImagen internal, JFramePrincipal framePrincipal) {
 
         this.internal = internal;
         this.framePrincipal = framePrincipal;
         
 
         initComponents();
-        
-        
-      /* this.jButton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
-                for (int x = 0; x < bi.getWidth(); x++) {
-                    for (int y = 0; y < bi.getHeight(); y++) {
-                        //Obtiene el color
-                        Color c1 = new Color(bi.getRGB(x, y));
-                        //Calcula la media de tonalidades
-                        int med = (c1.getRed() + c1.getGreen() + c1.getBlue())/3;
-                        //System.out.println(med+"  u-->"+u );
-                        if (med >= valorSlider) {
-                            //Almacena el color en la imagen destino
-                            bi.setRGB(x, y, Color.WHITE.getRGB());
-                        } else {
-                            bi.setRGB(x, y, 0);
-                        }
 
-                    }
-                }
-                Image nueva = herramientas.HerramientasImagen.toImage(bi);
-                // crear el nuevo
-                JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
-                nuevo.setVisible(true);
-                framePrincipal.getjDesktopPanePrincipal().add(nuevo);
-            }
-        });*/
-        
-        
-        
         
        this.imagenOriginal = herramientas.HerramientasImagen.copiarImagen(internal.getImagenOriginal());
         this.jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               int u = jSlider1.getValue();
+               int u1 = jSlider1.getValue();
+               int u2 = jSlider2.getValue();
                BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(imagenOriginal);
                 Color color;
                 for(int j = 0 ; j< bi.getWidth();j++){
                     for(int m = 0 ; m < bi.getHeight();m++){
                         color = new Color(bi.getRGB(j, m));
                         double v = (color.getRed()+color.getGreen()+color.getBlue())/3;
-                        if(v>=u){
-                            bi.setRGB(j, m,Color.WHITE.getRGB());
-                        }else{
+                        if(v>u1 && v<u2){                       
                             bi.setRGB(j, m,Color.BLACK.getRGB());
+                        }else{
+                            bi.setRGB(j, m,Color.WHITE.getRGB());
                         }
                     }
                 }
                 Image nueva = herramientas.HerramientasImagen.toImage(bi);
                 internal.setImagen(nueva);
-                System.out.println(u);
+                System.out.println("Umbral 1 >> "+u1);
+                System.out.println("Umbral 2 >> "+u2);
             }
         });
     }
@@ -106,6 +76,9 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
 
         jButton1 = new javax.swing.JButton();
         jSlider1 = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
+        jSlider2 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Imagen Binarizada");
@@ -130,25 +103,57 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setText("Umbral 1");
+
+        jSlider2.setMajorTickSpacing(32);
+        jSlider2.setMaximum(255);
+        jSlider2.setPaintLabels(true);
+        jSlider2.setPaintTicks(true);
+        jSlider2.setToolTipText("");
+        jSlider2.setValue(128);
+        jSlider2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jSlider2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider2StateChanged(evt);
+            }
+        });
+
+        jLabel2.setText("Umbral 2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                    .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -162,9 +167,16 @@ public class JInternalFrameBinario extends javax.swing.JInternalFrame {
         valorSlider = this.jSlider1.getValue();        
     }//GEN-LAST:event_jSlider1StateChanged
 
+    private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider2StateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSlider2;
     // End of variables declaration//GEN-END:variables
 }

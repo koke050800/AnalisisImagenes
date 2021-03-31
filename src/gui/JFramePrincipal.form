@@ -56,6 +56,21 @@
                 <Property name="text" type="java.lang.String" value="Imagen Binaria"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemUmbral2Sliders">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ImagenBinaria 2 Sliders"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemUmbralAuto">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Umbralizacion Automatica"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar Iluminaci&#xf3;n"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

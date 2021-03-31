@@ -33,6 +33,15 @@ public class JFramePrincipal extends javax.swing.JFrame {
         //histograma
         this.jMenuItem4.addActionListener(new ModificarImagenListener(this));
         
+        //iluminacion 
+        this.jMenuItem5.addActionListener(new ModificarImagenListener(this));
+        
+        //Binario con 2 silider
+        this.jMenuItemUmbral2Sliders.addActionListener(new ModificarImagenListener(this));
+        
+        //binarioAuto
+        this.jMenuItemUmbralAuto.addActionListener(new ModificarImagenListener(this));
+        
     }
 
     /**
@@ -56,6 +65,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItemUmbral2Sliders = new javax.swing.JMenuItem();
+        jMenuItemUmbralAuto = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -98,6 +110,15 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenuItem10.setText("Imagen Binaria");
         jMenu2.add(jMenuItem10);
+
+        jMenuItemUmbral2Sliders.setText("ImagenBinaria 2 Sliders");
+        jMenu2.add(jMenuItemUmbral2Sliders);
+
+        jMenuItemUmbralAuto.setText("Umbralizacion Automatica");
+        jMenu2.add(jMenuItemUmbralAuto);
+
+        jMenuItem5.setText("Modificar Iluminación");
+        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -163,9 +184,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemUmbral2Sliders;
+    private javax.swing.JMenuItem jMenuItemUmbralAuto;
     // End of variables declaration//GEN-END:variables
 
     /**

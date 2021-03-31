@@ -6,8 +6,10 @@
 package listeners;
 
 import espacial.Histograma;
+import espacial.UmbralAuto;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
+import gui.JInternalFrameBinario2Slider;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameModificar;
@@ -17,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -129,6 +132,15 @@ public class ModificarImagenListener implements ActionListener{
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
+        
+        if (item.getText().equals("ImagenBinaria 2 Sliders")) {
+
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+
+            JInternalFrameBinario2Slider internalNuevo = new JInternalFrameBinario2Slider(internal, this.framePrincipal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
 
         if (item.getText().equals("Histograma")) {
             
@@ -146,6 +158,20 @@ public class ModificarImagenListener implements ActionListener{
             JInternalFrameIluminacion internalNuevo = new JInternalFrameIluminacion(internal, this.framePrincipal);
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        
+        
+        if(item.getText().equals("Umbralizacion Automatica")){
+           JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            // se puede extraer la imagen orginal         
+            Image imagen = internal.getImagenOriginal();
+            double[] umbral = UmbralAuto.devolverHistograma(imagen);
+            JOptionPane.showMessageDialog(this.framePrincipal.getjDesktopPanePrincipal(), "El umbral es: "+UmbralAuto.calculaUmbral(umbral));
+            Image nueva = UmbralAuto.BinarizarImagen(imagen, UmbralAuto.calculaUmbral(umbral));
+            
+            JInternalFrameImagen i = new JInternalFrameImagen(nueva);
+            i.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(i);
         }
         
     }
