@@ -30,6 +30,52 @@ public class UmbralAuto {
         } while (umbralaux != umbral);
         return umbral;
     }
+    
+     public static int otsu(double[] histograma){
+        //La suma de los valores del histograma
+        int total = 0;
+        for(int i = 0;i<histograma.length;i++)total+=histograma[i];
+        //Valor maximo
+        int top = 256;
+        int sumaBB = 0;
+        int wB = 0;
+        //La maxima inferencia entre clases
+        double maximo = 0.0;
+        int wF;
+        int mF;
+        double valor;
+        int umbral = 0;
+        int suma1 = 0;
+        int[] range = new int[top];
+        for(int i = 0;i<top;i++)range[i]=i;
+        //Calculamos el producto punto de los valores del histograma lo cual no 
+        //da la probabilidad total de las clases
+        for(int i = 0;i<histograma.length;i++)suma1+=range[i]*histograma[i];
+        for(int i = 1;i<top;i++){
+            //Se calcula la probabilidad de que sea ForeGround, ya que son contrarias se 
+            //calcula con la resta del total menos la otra probabilidad
+            wF = total - wB;
+            //si las dos probabilidades son mayores a 0
+            if(wB > 0 && wF > 0){
+                //Se calcula la media
+                mF = (suma1 - sumaBB) / wF;
+                //Se calcula la varianza intra-clase
+                valor = wB*wF*((sumaBB/wB)-mF)*((sumaBB/wB)-mF);
+                //nuevo maximo y del umbral maximo
+                if (valor >= maximo){
+                    umbral = i;
+                    maximo = valor;
+                }
+                    
+            }
+            //Si la probabilidas igual a 0 se cambia al siguiente umbral a verificar
+            //Hciendo los calculos correspondientes
+            wB = wB + (int)histograma[i];
+            sumaBB = sumaBB + (i-1) *(int) histograma[i];
+        }
+        return umbral;
+        
+    }
 
     public static Image BinarizarImagen(Image imagen,int umbral) {
         Image nueva = null;
@@ -45,7 +91,7 @@ public class UmbralAuto {
                         int b = color.getBlue(); 
                         int med = (r+g+b)/3;
                         
-                        if(med<=umbral){
+                        if(med>=umbral){
                           bi.setRGB(j, m, Color.WHITE.getRGB());  
                         }else{
                            bi.setRGB(j, m, Color.BLACK.getRGB()); 

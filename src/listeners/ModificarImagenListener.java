@@ -12,6 +12,7 @@ import gui.JInternalFrameBinario;
 import gui.JInternalFrameBinario2Slider;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
+import gui.JInternalFrameLineal;
 import gui.JInternalFrameModificar;
 import java.awt.Color;
 import java.awt.Image;
@@ -96,33 +97,6 @@ public class ModificarImagenListener implements ActionListener{
 
         }
 
-       /* if (item.getText().equals("Blanco y Negro")) {
-            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
-
-            BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
-            for (int x = 0; x < bi.getWidth(); x++) {
-                for (int y = 0; y < bi.getHeight(); y++) {
-                    //Obtiene el color
-                    Color c1 = new Color(bi.getRGB(x, y));
-                    //Calcula la media de tonalidades
-                    int med = (c1.getRed() + c1.getGreen() + c1.getBlue());
-                    if (med >= 382) {
-                        //Almacena el color en la imagen destino
-                        bi.setRGB(x, y, Color.WHITE.getRGB());
-                    } else {
-                        bi.setRGB(x, y, 0);
-                    }
-
-                }
-            }
-            Image nueva = herramientas.HerramientasImagen.toImage(bi);
-            //crear el nuevo
-            JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
-            nuevo.setVisible(true);
-            this.framePrincipal.getjDesktopPanePrincipal().add(nuevo);
-
-        }*/
-        
         
         if (item.getText().equals("Imagen Binaria")) {        
             
@@ -166,14 +140,38 @@ public class ModificarImagenListener implements ActionListener{
             // se puede extraer la imagen orginal         
             Image imagen = internal.getImagenOriginal();
             double[] umbral = UmbralAuto.devolverHistograma(imagen);
-            JOptionPane.showMessageDialog(this.framePrincipal.getjDesktopPanePrincipal(), "El umbral es: "+UmbralAuto.calculaUmbral(umbral));
+            JOptionPane.showMessageDialog(this.framePrincipal.getjDesktopPanePrincipal(), "El umbral es: " + UmbralAuto.calculaUmbral(umbral));
             Image nueva = UmbralAuto.BinarizarImagen(imagen, UmbralAuto.calculaUmbral(umbral));
-            
+
+            JInternalFrameImagen i = new JInternalFrameImagen(nueva);
+            i.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(i);
+        }
+
+        if (item.getText().equals("Umbralizacion Automatica Otsu")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            // se puede extraer la imagen orginal         
+            Image imagen = internal.getImagenOriginal();
+            double[] umbral = UmbralAuto.devolverHistograma(imagen);
+            JOptionPane.showMessageDialog(this.framePrincipal.getjDesktopPanePrincipal(), "El umbral es: " + UmbralAuto.calculaUmbral(umbral));
+            Image nueva = UmbralAuto.BinarizarImagen(imagen, UmbralAuto.otsu(umbral));
+
             JInternalFrameImagen i = new JInternalFrameImagen(nueva);
             i.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(i);
         }
         
+        if(item.getText().equals("Lineal")){
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            
+            // se puede extraer la imagen orginal         
+            Image imagen = internal.getImagenOriginal();
+            JInternalFrameLineal li = new JInternalFrameLineal(internal,imagen);
+            
+            li.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(li);
+        }
+
     }
 
 }

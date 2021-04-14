@@ -35,12 +35,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         
         //iluminacion 
         this.jMenuItem5.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemEXPlineal.addActionListener(new ModificarImagenListener(this));
         
         //Binario con 2 silider
         this.jMenuItemUmbral2Sliders.addActionListener(new ModificarImagenListener(this));
         
         //binarioAuto
         this.jMenuItemUmbralAuto.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemUmbralAutoOtsu.addActionListener(new ModificarImagenListener(this));
+        
+        
         
     }
 
@@ -67,7 +71,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItemUmbral2Sliders = new javax.swing.JMenuItem();
         jMenuItemUmbralAuto = new javax.swing.JMenuItem();
+        jMenuItemUmbralAutoOtsu = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuExpansion = new javax.swing.JMenu();
+        jMenuItemEXPlineal = new javax.swing.JMenuItem();
+        jMenuItemEXPlogaritmica = new javax.swing.JMenuItem();
+        jMenuItemEXPexponencial = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -117,8 +126,29 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemUmbralAuto.setText("Umbralizacion Automatica");
         jMenu2.add(jMenuItemUmbralAuto);
 
+        jMenuItemUmbralAutoOtsu.setText("Umbralizacion Automatica Otsu");
+        jMenu2.add(jMenuItemUmbralAutoOtsu);
+
         jMenuItem5.setText("Modificar Iluminación");
         jMenu2.add(jMenuItem5);
+
+        jMenuExpansion.setText("Expansión");
+
+        jMenuItemEXPlineal.setText("Lineal");
+        jMenuExpansion.add(jMenuItemEXPlineal);
+
+        jMenuItemEXPlogaritmica.setText("Logarítmica");
+        jMenuItemEXPlogaritmica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEXPlogaritmicaActionPerformed(evt);
+            }
+        });
+        jMenuExpansion.add(jMenuItemEXPlogaritmica);
+
+        jMenuItemEXPexponencial.setText("Exponencial");
+        jMenuExpansion.add(jMenuItemEXPexponencial);
+
+        jMenu2.add(jMenuExpansion);
 
         jMenuBar1.add(jMenu2);
 
@@ -137,6 +167,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemEXPlogaritmicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEXPlogaritmicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemEXPlogaritmicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +213,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuExpansion;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
@@ -188,8 +223,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemEXPexponencial;
+    private javax.swing.JMenuItem jMenuItemEXPlineal;
+    private javax.swing.JMenuItem jMenuItemEXPlogaritmica;
     private javax.swing.JMenuItem jMenuItemUmbral2Sliders;
     private javax.swing.JMenuItem jMenuItemUmbralAuto;
+    private javax.swing.JMenuItem jMenuItemUmbralAutoOtsu;
     // End of variables declaration//GEN-END:variables
 
     /**

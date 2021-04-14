@@ -66,11 +66,41 @@
                 <Property name="text" type="java.lang.String" value="Umbralizacion Automatica"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemUmbralAutoOtsu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Umbralizacion Automatica Otsu"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar Iluminaci&#xf3;n"/>
               </Properties>
             </MenuItem>
+            <Menu class="javax.swing.JMenu" name="jMenuExpansion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Expansi&#xf3;n"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEXPlineal">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Lineal"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEXPlogaritmica">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Logar&#xed;tmica"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemEXPlogaritmicaActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEXPexponencial">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Exponencial"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
       </SubComponents>
