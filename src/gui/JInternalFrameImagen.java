@@ -48,6 +48,8 @@ public class JInternalFrameImagen extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(240, 230, 240));
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
