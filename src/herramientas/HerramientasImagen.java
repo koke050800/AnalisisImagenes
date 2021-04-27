@@ -27,7 +27,7 @@ public class HerramientasImagen {
           try {
             // definir los filtros para lectura
             FileNameExtensionFilter filtro =
-                    new FileNameExtensionFilter("Imagenes","jpg","jpeg","png","bmp");
+                    new FileNameExtensionFilter("Imagenes","jpg","jpeg","png","bmp","CR2");
             // crear un selector de archivos
             JFileChooser selector = new JFileChooser();
             // agregar el filtro al selector

@@ -10,9 +10,13 @@ import espacial.UmbralAuto;
 import gui.JFramePrincipal;
 import gui.JInternalFrameBinario;
 import gui.JInternalFrameBinario2Slider;
+import gui.JInternalFrameConvolucion;
+import gui.JInternalFrameEcualizame;
+import gui.JInternalFrameExponencial;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameLineal;
+import gui.JInternalFrameLn;
 import gui.JInternalFrameModificar;
 import java.awt.Color;
 import java.awt.Image;
@@ -160,17 +164,52 @@ public class ModificarImagenListener implements ActionListener{
             i.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(i);
         }
-        
-        if(item.getText().equals("Lineal")){
+
+        if (item.getText().equals("Lineal")) {
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
-            
+
             // se puede extraer la imagen orginal         
             Image imagen = internal.getImagenOriginal();
-            JInternalFrameLineal li = new JInternalFrameLineal(internal,imagen);
-            
+            JInternalFrameLineal li = new JInternalFrameLineal(internal, imagen);
+
             li.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(li);
         }
+
+        if (item.getText().equals("Logarítmica")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image imagen = internal.getImagenOriginal();
+            //Image nueva = espacial.Expansion.ExpandeLog(imagen);
+            //JInternalFrameImagen i = new JInternalFrameImagen(nueva);
+            JInternalFrameLn i = new JInternalFrameLn(internal, imagen);
+            i.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(i);
+        }
+        if (item.getText().equals("Exponencial")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image imagen = internal.getImagenOriginal();
+            JInternalFrameExponencial li = new JInternalFrameExponencial(internal, imagen);
+            //JInternalFrameLineal li = new JInternalFrameLineal(internal,imagen);
+            li.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(li);
+        }
+        if (item.getText().equals("Ecualizar")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image imagen = internal.getImagenOriginal();
+            JInternalFrameEcualizame li = new JInternalFrameEcualizame(internal, imagen);
+            //JInternalFrameLineal li = new JInternalFrameLineal(internal,imagen);
+            li.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(li);
+        }
+        if (item.getText().equals("Convolución")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image imagen = internal.getImagenOriginal();
+            JInternalFrameConvolucion li = new JInternalFrameConvolucion(internal, imagen);
+
+            li.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(li);
+        }
+        
 
     }
 
