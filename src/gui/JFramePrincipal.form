@@ -101,6 +101,16 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEQ">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ecualizar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConvolucion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Convoluci&#xf3;n"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

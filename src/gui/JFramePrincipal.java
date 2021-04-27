@@ -36,6 +36,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         //iluminacion 
         this.jMenuItem5.addActionListener(new ModificarImagenListener(this));
         this.jMenuItemEXPlineal.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemEXPlogaritmica.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemEXPexponencial.addActionListener(new ModificarImagenListener(this));
         
         //Binario con 2 silider
         this.jMenuItemUmbral2Sliders.addActionListener(new ModificarImagenListener(this));
@@ -43,6 +45,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         //binarioAuto
         this.jMenuItemUmbralAuto.addActionListener(new ModificarImagenListener(this));
         this.jMenuItemUmbralAutoOtsu.addActionListener(new ModificarImagenListener(this));
+        
+        //ecualizar
+        this.jMenuItemEQ.addActionListener(new ModificarImagenListener(this));
+        
+        //convolucion
+        this.jMenuItemConvolucion.addActionListener(new ModificarImagenListener(this));
         
         
         
@@ -77,6 +85,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemEXPlineal = new javax.swing.JMenuItem();
         jMenuItemEXPlogaritmica = new javax.swing.JMenuItem();
         jMenuItemEXPexponencial = new javax.swing.JMenuItem();
+        jMenuItemEQ = new javax.swing.JMenuItem();
+        jMenuItemConvolucion = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -149,6 +159,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuExpansion.add(jMenuItemEXPexponencial);
 
         jMenu2.add(jMenuExpansion);
+
+        jMenuItemEQ.setText("Ecualizar");
+        jMenu2.add(jMenuItemEQ);
+
+        jMenuItemConvolucion.setText("Convolución");
+        jMenu2.add(jMenuItemConvolucion);
 
         jMenuBar1.add(jMenu2);
 
@@ -223,6 +239,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemConvolucion;
+    private javax.swing.JMenuItem jMenuItemEQ;
     private javax.swing.JMenuItem jMenuItemEXPexponencial;
     private javax.swing.JMenuItem jMenuItemEXPlineal;
     private javax.swing.JMenuItem jMenuItemEXPlogaritmica;
