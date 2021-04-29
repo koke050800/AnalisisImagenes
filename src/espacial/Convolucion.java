@@ -63,8 +63,6 @@ public class Convolucion {
             auxG /= div;
             auxB /= div;
             
-            
-            
         }
         color = new Color(verificar(auxR+offset),verificar(auxG+offset),verificar(auxB+offset));
         //System.out.println("R "+color.getRed()+"   G "+color.getGreen()+"   B "+color.getBlue());
