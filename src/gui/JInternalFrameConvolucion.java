@@ -52,9 +52,9 @@ public class JInternalFrameConvolucion extends javax.swing.JInternalFrame implem
         matrizEnviar[1][1] = Integer.parseInt(jTextField5.getText());
         matrizEnviar[1][2] = Integer.parseInt(jTextField6.getText());
 
-        matrizEnviar[2][0] = Integer.parseInt(jTextField1.getText());
-        matrizEnviar[2][1] = Integer.parseInt(jTextField7.getText());
-        matrizEnviar[2][2] = Integer.parseInt(jTextField8.getText());
+        matrizEnviar[2][0] = Integer.parseInt(jTextField7.getText());
+        matrizEnviar[2][1] = Integer.parseInt(jTextField8.getText());
+        matrizEnviar[2][2] = Integer.parseInt(jTextField9.getText());
 
         /*for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -73,10 +73,10 @@ public class JInternalFrameConvolucion extends javax.swing.JInternalFrame implem
         if (jTextField11.getText().isEmpty()) {
             div = 1;
         } else {
-            if (Integer.parseInt(jTextField10.getText()) == 0) {
+            if (Integer.parseInt(jTextField11.getText()) == 0) {
                 div = 1;
             } else {
-                div = Integer.parseInt(jTextField10.getText());
+                div = Integer.parseInt(jTextField11.getText());
             }
 
         }
