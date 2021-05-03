@@ -106,11 +106,29 @@
                 <Property name="text" type="java.lang.String" value="Ecualizar"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConvolucion">
+            <Menu class="javax.swing.JMenu" name="jMenuExpansionConvolucion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Convoluci&#xf3;n"/>
               </Properties>
-            </MenuItem>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConvolucionMascara">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Mascara"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemConvolucionMascaraActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemConvolucionKIRCH">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="KIRCH"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemConvolucionKIRCHActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
       </SubComponents>

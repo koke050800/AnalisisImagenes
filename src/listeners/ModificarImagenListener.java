@@ -5,6 +5,8 @@
  */
 package listeners;
 
+import espacial.Convolucion;
+import espacial.Convolucion2;
 import espacial.Histograma;
 import espacial.UmbralAuto;
 import gui.JFramePrincipal;
@@ -201,7 +203,7 @@ public class ModificarImagenListener implements ActionListener{
             li.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(li);
         }
-        if (item.getText().equals("Convolución")) {
+        if (item.getText().equals("Mascara")) {
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             Image imagen = internal.getImagenOriginal();
             JInternalFrameConvolucion li = new JInternalFrameConvolucion(internal, imagen);
@@ -209,7 +211,18 @@ public class ModificarImagenListener implements ActionListener{
             li.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(li);
         }
-        
+        if (item.getText().equals("KIRCH")) {
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image imagen = internal.getImagenOriginal();
+            Image nueva = Convolucion.aplicarConvolucionKIRCH(imagen);
+
+
+            /* crear el nuevo*/
+            JInternalFrameImagen nuevo = new JInternalFrameImagen(nueva);
+            nuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(nuevo);
+        }
+
 
     }
 

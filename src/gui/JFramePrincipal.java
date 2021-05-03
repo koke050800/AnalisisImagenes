@@ -50,7 +50,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         this.jMenuItemEQ.addActionListener(new ModificarImagenListener(this));
         
         //convolucion
-        this.jMenuItemConvolucion.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemConvolucionMascara.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemConvolucionKIRCH.addActionListener(new ModificarImagenListener(this));
         
         
         
@@ -86,7 +87,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemEXPlogaritmica = new javax.swing.JMenuItem();
         jMenuItemEXPexponencial = new javax.swing.JMenuItem();
         jMenuItemEQ = new javax.swing.JMenuItem();
-        jMenuItemConvolucion = new javax.swing.JMenuItem();
+        jMenuExpansionConvolucion = new javax.swing.JMenu();
+        jMenuItemConvolucionMascara = new javax.swing.JMenuItem();
+        jMenuItemConvolucionKIRCH = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -163,8 +166,25 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemEQ.setText("Ecualizar");
         jMenu2.add(jMenuItemEQ);
 
-        jMenuItemConvolucion.setText("Convolución");
-        jMenu2.add(jMenuItemConvolucion);
+        jMenuExpansionConvolucion.setText("Convolución");
+
+        jMenuItemConvolucionMascara.setText("Mascara");
+        jMenuItemConvolucionMascara.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemConvolucionMascaraActionPerformed(evt);
+            }
+        });
+        jMenuExpansionConvolucion.add(jMenuItemConvolucionMascara);
+
+        jMenuItemConvolucionKIRCH.setText("KIRCH");
+        jMenuItemConvolucionKIRCH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemConvolucionKIRCHActionPerformed(evt);
+            }
+        });
+        jMenuExpansionConvolucion.add(jMenuItemConvolucionKIRCH);
+
+        jMenu2.add(jMenuExpansionConvolucion);
 
         jMenuBar1.add(jMenu2);
 
@@ -187,6 +207,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void jMenuItemEXPlogaritmicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEXPlogaritmicaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemEXPlogaritmicaActionPerformed
+
+    private void jMenuItemConvolucionMascaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConvolucionMascaraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemConvolucionMascaraActionPerformed
+
+    private void jMenuItemConvolucionKIRCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConvolucionKIRCHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemConvolucionKIRCHActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +258,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuExpansion;
+    private javax.swing.JMenu jMenuExpansionConvolucion;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
@@ -239,7 +268,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenuItem jMenuItemConvolucion;
+    private javax.swing.JMenuItem jMenuItemConvolucionKIRCH;
+    private javax.swing.JMenuItem jMenuItemConvolucionMascara;
     private javax.swing.JMenuItem jMenuItemEQ;
     private javax.swing.JMenuItem jMenuItemEXPexponencial;
     private javax.swing.JMenuItem jMenuItemEXPlineal;
