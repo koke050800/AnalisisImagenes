@@ -129,6 +129,11 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemSalPimienta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar SalPimienta"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

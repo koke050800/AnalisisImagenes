@@ -53,6 +53,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         this.jMenuItemConvolucionMascara.addActionListener(new ModificarImagenListener(this));
         this.jMenuItemConvolucionKIRCH.addActionListener(new ModificarImagenListener(this));
         
+        //sal pimienta
+        this.jMenuItemSalPimienta.addActionListener(new ModificarImagenListener(this));
         
         
     }
@@ -90,6 +92,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuExpansionConvolucion = new javax.swing.JMenu();
         jMenuItemConvolucionMascara = new javax.swing.JMenuItem();
         jMenuItemConvolucionKIRCH = new javax.swing.JMenuItem();
+        jMenuItemSalPimienta = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -186,6 +189,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenu2.add(jMenuExpansionConvolucion);
 
+        jMenuItemSalPimienta.setText("Agregar SalPimienta");
+        jMenu2.add(jMenuItemSalPimienta);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -204,17 +210,17 @@ public class JFramePrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemEXPlogaritmicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEXPlogaritmicaActionPerformed
+    private void jMenuItemConvolucionKIRCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConvolucionKIRCHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemEXPlogaritmicaActionPerformed
+    }//GEN-LAST:event_jMenuItemConvolucionKIRCHActionPerformed
 
     private void jMenuItemConvolucionMascaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConvolucionMascaraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemConvolucionMascaraActionPerformed
 
-    private void jMenuItemConvolucionKIRCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConvolucionKIRCHActionPerformed
+    private void jMenuItemEXPlogaritmicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEXPlogaritmicaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemConvolucionKIRCHActionPerformed
+    }//GEN-LAST:event_jMenuItemEXPlogaritmicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,6 +280,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemEXPexponencial;
     private javax.swing.JMenuItem jMenuItemEXPlineal;
     private javax.swing.JMenuItem jMenuItemEXPlogaritmica;
+    private javax.swing.JMenuItem jMenuItemSalPimienta;
     private javax.swing.JMenuItem jMenuItemUmbral2Sliders;
     private javax.swing.JMenuItem jMenuItemUmbralAuto;
     private javax.swing.JMenuItem jMenuItemUmbralAutoOtsu;

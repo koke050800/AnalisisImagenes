@@ -6,7 +6,6 @@
 package listeners;
 
 import espacial.Convolucion;
-import espacial.Convolucion2;
 import espacial.Histograma;
 import espacial.UmbralAuto;
 import gui.JFramePrincipal;
@@ -20,6 +19,7 @@ import gui.JInternalFrameImagen;
 import gui.JInternalFrameLineal;
 import gui.JInternalFrameLn;
 import gui.JInternalFrameModificar;
+import gui.JInternalFrameSalPimienta;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -222,7 +222,14 @@ public class ModificarImagenListener implements ActionListener{
             nuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(nuevo);
         }
+        if (item.getText().equals("Agregar SalPimienta")) {
 
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+
+            JInternalFrameSalPimienta internalNuevo = new JInternalFrameSalPimienta(internal, this.framePrincipal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
 
     }
 

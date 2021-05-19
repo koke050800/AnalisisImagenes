@@ -5,11 +5,9 @@
  */
 package espacial;
 
-import java.awt.Color;
+
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
-import java.util.Random;
 import java.awt.Color;
 
 /**
@@ -46,9 +44,9 @@ public class Convolucion {
 
         Image nueva = null;
         int tamMASK = arregloMascarasKIRCH[0][1].length;
-        int[][] mascaraAUX = new int[tamMASK][tamMASK];
+       
         for (int mascaraN = 0; mascaraN < arregloMascarasKIRCH.length; mascaraN++) {
-
+            int[][] mascaraAUX = new int[tamMASK][tamMASK];
             for (int x = 0; x < tamMASK; x++) {
                 for (int y = 0; y < tamMASK; y++) {
                     mascaraAUX[x][y] = arregloMascarasKIRCH[mascaraN][x][y];
@@ -57,8 +55,13 @@ public class Convolucion {
                 System.out.println(" ");
             }
             System.out.println(" ");
-            nueva = aplicarConvolucion(imagen, mascaraAUX, 0, 0);
-            mascaraAUX = new int[tamMASK][tamMASK];
+            if(mascaraN == 0){
+                nueva = aplicarConvolucion(imagen, mascaraAUX, 0, 0);
+            }else{
+                nueva = aplicarConvolucion(nueva, mascaraAUX, 0, 0);
+            }
+            
+            
         }
 
         return nueva;
