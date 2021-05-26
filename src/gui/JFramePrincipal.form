@@ -134,6 +134,11 @@
                 <Property name="text" type="java.lang.String" value="Agregar SalPimienta"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFTT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="FTT (Frecuencias)"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

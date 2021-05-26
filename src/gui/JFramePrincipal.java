@@ -56,6 +56,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         //sal pimienta
         this.jMenuItemSalPimienta.addActionListener(new ModificarImagenListener(this));
         
+        //FTT
+        this.jMenuItemFTT.addActionListener(new ModificarImagenListener(this));
+        
         
     }
 
@@ -93,6 +96,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemConvolucionMascara = new javax.swing.JMenuItem();
         jMenuItemConvolucionKIRCH = new javax.swing.JMenuItem();
         jMenuItemSalPimienta = new javax.swing.JMenuItem();
+        jMenuItemFTT = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -192,6 +196,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemSalPimienta.setText("Agregar SalPimienta");
         jMenu2.add(jMenuItemSalPimienta);
 
+        jMenuItemFTT.setText("FTT (Frecuencias)");
+        jMenu2.add(jMenuItemFTT);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -280,6 +287,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemEXPexponencial;
     private javax.swing.JMenuItem jMenuItemEXPlineal;
     private javax.swing.JMenuItem jMenuItemEXPlogaritmica;
+    private javax.swing.JMenuItem jMenuItemFTT;
     private javax.swing.JMenuItem jMenuItemSalPimienta;
     private javax.swing.JMenuItem jMenuItemUmbral2Sliders;
     private javax.swing.JMenuItem jMenuItemUmbralAuto;

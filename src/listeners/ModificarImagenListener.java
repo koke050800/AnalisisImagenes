@@ -14,6 +14,7 @@ import gui.JInternalFrameBinario2Slider;
 import gui.JInternalFrameConvolucion;
 import gui.JInternalFrameEcualizame;
 import gui.JInternalFrameExponencial;
+import gui.JInternalFrameFrecuenciasFTT;
 import gui.JInternalFrameIluminacion;
 import gui.JInternalFrameImagen;
 import gui.JInternalFrameLineal;
@@ -229,6 +230,16 @@ public class ModificarImagenListener implements ActionListener{
             JInternalFrameSalPimienta internalNuevo = new JInternalFrameSalPimienta(internal, this.framePrincipal);
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
+        }
+        if (item.getText().equals("FTT (Frecuencias)")) {
+
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+            Image imagen = internal.getImagenOriginal();
+
+            JInternalFrameFrecuenciasFTT frameFrecuenciasFTT = new JInternalFrameFrecuenciasFTT(imagen, internal, this.framePrincipal);
+            frameFrecuenciasFTT.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(frameFrecuenciasFTT);
+
         }
 
     }
