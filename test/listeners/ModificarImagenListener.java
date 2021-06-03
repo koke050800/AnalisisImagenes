@@ -33,14 +33,16 @@ import javax.swing.JOptionPane;
  *
  * @author working
  */
-public class ModificarImagenListener implements ActionListener {
-
-    private JFramePrincipal framePrincipal;
+public class ModificarImagenListener implements ActionListener{
+    
+     
+    private  JFramePrincipal framePrincipal;
 
     public ModificarImagenListener(JFramePrincipal framePrincipal) {
         this.framePrincipal = framePrincipal;
     }
-
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         JMenuItem item = (JMenuItem) e.getSource();
@@ -102,15 +104,16 @@ public class ModificarImagenListener implements ActionListener {
 
         }
 
-        if (item.getText().equals("Imagen Binaria")) {
-
+        
+        if (item.getText().equals("Imagen Binaria")) {        
+            
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
-
+    
             JInternalFrameBinario internalNuevo = new JInternalFrameBinario(internal, this.framePrincipal);
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
-
+        
         if (item.getText().equals("ImagenBinaria 2 Sliders")) {
 
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
@@ -121,7 +124,7 @@ public class ModificarImagenListener implements ActionListener {
         }
 
         if (item.getText().equals("Histograma")) {
-
+            
             JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             Histograma h1 = new Histograma(internal.getImagenOriginal());
             h1.calcularHistogramas();
@@ -137,9 +140,10 @@ public class ModificarImagenListener implements ActionListener {
             internalNuevo.setVisible(true);
             this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
         }
-
-        if (item.getText().equals("Umbralizacion Automatica")) {
-            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+        
+        
+        if(item.getText().equals("Umbralizacion Automatica")){
+           JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
             // se puede extraer la imagen orginal         
             Image imagen = internal.getImagenOriginal();
             double[] umbral = UmbralAuto.devolverHistograma(imagen);
@@ -237,24 +241,7 @@ public class ModificarImagenListener implements ActionListener {
             this.framePrincipal.getjDesktopPanePrincipal().add(frameFrecuenciasFTT);
 
         }
-        if (item.getText().equals("FTT (Filtrado)")) {
-            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
-
-            Image imagen;
-            BufferedImage bi = herramientas.HerramientasImagen.toBufferedImage(internal.getImagenOriginal());
-
-            for (int x = 0; x < bi.getWidth(); x++) {
-                for (int y = 0; y < bi.getHeight(); y++) {
-                    Color c1 = new Color(bi.getRGB(x, y));
-                    int med = (c1.getRed() + c1.getGreen() + c1.getBlue()) / 3;
-                    bi.setRGB(x, y, new Color(med, med, med).getRGB());
-                }
-            }
-            imagen = herramientas.HerramientasImagen.toImage(bi);
-            internal.setImagen(imagen);
-            herramientas.HerramientasImagen.FrecuenciasGrises(imagen, this.framePrincipal);
-
-        }
 
     }
+
 }

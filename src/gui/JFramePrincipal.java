@@ -58,6 +58,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         
         //FTT
         this.jMenuItemFTT.addActionListener(new ModificarImagenListener(this));
+        this.jMenuItemFiltradoFTT.addActionListener(new ModificarImagenListener(this));
         
         
     }
@@ -97,6 +98,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemConvolucionKIRCH = new javax.swing.JMenuItem();
         jMenuItemSalPimienta = new javax.swing.JMenuItem();
         jMenuItemFTT = new javax.swing.JMenuItem();
+        jMenuItemFiltradoFTT = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -135,6 +137,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem9);
 
         jMenuItem6.setText("Escala de Grises");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuItem10.setText("Imagen Binaria");
@@ -199,6 +206,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemFTT.setText("FTT (Frecuencias)");
         jMenu2.add(jMenuItemFTT);
 
+        jMenuItemFiltradoFTT.setText("FTT (Filtrado)");
+        jMenu2.add(jMenuItemFiltradoFTT);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -228,6 +238,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void jMenuItemEXPlogaritmicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEXPlogaritmicaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemEXPlogaritmicaActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +302,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemEXPlineal;
     private javax.swing.JMenuItem jMenuItemEXPlogaritmica;
     private javax.swing.JMenuItem jMenuItemFTT;
+    private javax.swing.JMenuItem jMenuItemFiltradoFTT;
     private javax.swing.JMenuItem jMenuItemSalPimienta;
     private javax.swing.JMenuItem jMenuItemUmbral2Sliders;
     private javax.swing.JMenuItem jMenuItemUmbralAuto;

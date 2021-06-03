@@ -5,6 +5,10 @@
  */
 package herramientas;
 
+import fft.GestorGrises;
+import gui.JFramePrincipal;
+import gui.JInternalFrameFiltrado;
+import gui.JInternalFrameImagen;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -91,4 +95,27 @@ public class HerramientasImagen {
         return valor;
     }
     
+    public static Image FrecuenciasGrises(Image io, JFramePrincipal j) {
+        BufferedImage bi = HerramientasImagen.toBufferedImage(io);
+        BufferedImage bnuevo = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_INT_RGB);
+        // recorres el buffer
+
+        GestorGrises g = new GestorGrises(bi);
+
+        bnuevo = g.obtenerImagenFrecuencias(true);
+        JInternalFrameImagen internalNuevo2 = new JInternalFrameImagen(bnuevo);
+        internalNuevo2.setVisible(true);
+        j.getjDesktopPanePrincipal().add(internalNuevo2);
+
+        JInternalFrameFiltrado Filtro = new JInternalFrameFiltrado(j, io, bi.getHeight(), g);
+        Filtro.setVisible(true);
+        j.getjDesktopPanePrincipal().add(Filtro);
+
+        //esto es la inversa no importa ahorita 
+//            bnuevo = g.obtenerImagenEspacial();
+//            JInternalFrameImagen internalNuevo23 = new JInternalFrameImagen(bnuevo);
+//            internalNuevo23.setVisible(true);
+//            j.getjDesktopPanePrincipal().add(internalNuevo23);
+        return HerramientasImagen.toBufferedImage(bnuevo);
+    }
 }

@@ -50,6 +50,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Escala de Grises"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
               <Properties>
@@ -137,6 +140,11 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFTT">
               <Properties>
                 <Property name="text" type="java.lang.String" value="FTT (Frecuencias)"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemFiltradoFTT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="FTT (Filtrado)"/>
               </Properties>
             </MenuItem>
           </SubComponents>
