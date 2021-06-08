@@ -60,6 +60,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         this.jMenuItemFTT.addActionListener(new ModificarImagenListener(this));
         this.jMenuItemFiltradoFTT.addActionListener(new ModificarImagenListener(this));
         
+        //traslacion
+        this.jMenuItemTraslada.addActionListener(new ModificarImagenListener(this));
         
     }
 
@@ -99,6 +101,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemSalPimienta = new javax.swing.JMenuItem();
         jMenuItemFTT = new javax.swing.JMenuItem();
         jMenuItemFiltradoFTT = new javax.swing.JMenuItem();
+        jMenuItemTraslada = new javax.swing.JMenuItem();
 
         jMenuItem7.setText("jMenuItem7");
 
@@ -209,6 +212,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItemFiltradoFTT.setText("FTT (Filtrado)");
         jMenu2.add(jMenuItemFiltradoFTT);
 
+        jMenuItemTraslada.setText("Traslación");
+        jMenu2.add(jMenuItemTraslada);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -304,6 +310,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemFTT;
     private javax.swing.JMenuItem jMenuItemFiltradoFTT;
     private javax.swing.JMenuItem jMenuItemSalPimienta;
+    private javax.swing.JMenuItem jMenuItemTraslada;
     private javax.swing.JMenuItem jMenuItemUmbral2Sliders;
     private javax.swing.JMenuItem jMenuItemUmbralAuto;
     private javax.swing.JMenuItem jMenuItemUmbralAutoOtsu;

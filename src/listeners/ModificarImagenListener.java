@@ -21,6 +21,7 @@ import gui.JInternalFrameLineal;
 import gui.JInternalFrameLn;
 import gui.JInternalFrameModificar;
 import gui.JInternalFrameSalPimienta;
+import gui.JInternalFrameTraslacion;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -253,6 +254,16 @@ public class ModificarImagenListener implements ActionListener {
             imagen = herramientas.HerramientasImagen.toImage(bi);
             internal.setImagen(imagen);
             herramientas.HerramientasImagen.FrecuenciasGrises(imagen, this.framePrincipal);
+
+        }
+
+        if (item.getText().equals("Traslación")) {
+
+            JInternalFrameImagen internal = (JInternalFrameImagen) this.framePrincipal.getjDesktopPanePrincipal().getSelectedFrame();
+
+            JInternalFrameTraslacion internalNuevo = new JInternalFrameTraslacion(internal, this.framePrincipal);
+            internalNuevo.setVisible(true);
+            this.framePrincipal.getjDesktopPanePrincipal().add(internalNuevo);
 
         }
 

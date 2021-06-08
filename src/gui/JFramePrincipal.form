@@ -147,6 +147,11 @@
                 <Property name="text" type="java.lang.String" value="FTT (Filtrado)"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemTraslada">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Traslaci&#xf3;n"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
