@@ -340,60 +340,60 @@ public class JInternalFrameFiltrado extends javax.swing.JInternalFrame implement
     }//GEN-LAST:event_vistaPreviaActionPerformed
 
     private void aplicarFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aplicarFiltroActionPerformed
- if (butterAltas.isSelected()) {
+        if (butterAltas.isSelected()) {
 
             B = new Butterworth(this.radioSlider.getValue(), new Dimension(this.size, this.size), true, Integer.parseInt(this.ordenTextF.getText()));
             B.crearFiltro();
-            this.filtro = new JInternalFrameImagen(B.getImagen());
-            filtro.setVisible(true);
-            framePrincipal.getjDesktopPanePrincipal().add(filtro);
+//            this.filtro = new JInternalFrameImagen(B.getImagen());
+//            //filtro.setVisible(true);
+//            framePrincipal.getjDesktopPanePrincipal().add(filtro);
             this.Filtrodecidido = B.getFiltroEspacial();
         } else if (butterBajas.isSelected()) {
 
             B = new Butterworth(this.radioSlider.getValue(), new Dimension(this.size, this.size), false, Integer.parseInt(this.ordenTextF.getText()));
             B.crearFiltro();
-            this.filtro = new JInternalFrameImagen(B.getImagen());
-            filtro.setVisible(true);
-            framePrincipal.getjDesktopPanePrincipal().add(filtro);
+//            this.filtro = new JInternalFrameImagen(B.getImagen());
+//            //filtro.setVisible(true);
+//            framePrincipal.getjDesktopPanePrincipal().add(filtro);
             this.Filtrodecidido = B.getFiltroEspacial();
         } else if (this.pasaAltas.isSelected()) {
 
             PA = new FiltroIdealPasaAltas(this.radioSlider.getValue(), new Dimension(this.size, this.size));
             PA.crearFiltro();
-            this.filtro = new JInternalFrameImagen(PA.getImagen());
-            filtro.setVisible(true);
-            framePrincipal.getjDesktopPanePrincipal().add(filtro);
+//            this.filtro = new JInternalFrameImagen(PA.getImagen());
+//            //filtro.setVisible(true);
+//            framePrincipal.getjDesktopPanePrincipal().add(filtro);
             this.Filtrodecidido = PA.getFiltroEspacial();
         } else if (this.pasaBajas.isSelected()) {
 
             PB = new FiltroIdealPasaBajas(this.radioSlider.getValue(), new Dimension(this.size, this.size));
             PB.crearFiltro();
-            this.filtro = new JInternalFrameImagen(PB.getImagen());
-            filtro.setVisible(true);
-            framePrincipal.getjDesktopPanePrincipal().add(filtro);
+//            this.filtro = new JInternalFrameImagen(PB.getImagen());
+//            //filtro.setVisible(true);
+//            framePrincipal.getjDesktopPanePrincipal().add(filtro);
             this.Filtrodecidido = PB.getFiltroEspacial();
         } else if (this.gaussiano.isSelected()) {
 
             G = new Gaussiano(this.radioSlider.getValue(), false, new Dimension(this.size, this.size));
             G.crearFiltro();
-            this.filtro = new JInternalFrameImagen(G.getImagen());
-            filtro.setVisible(true);
-            framePrincipal.getjDesktopPanePrincipal().add(filtro);
+//            this.filtro = new JInternalFrameImagen(G.getImagen());
+//            //filtro.setVisible(true);
+//            framePrincipal.getjDesktopPanePrincipal().add(filtro);
             this.Filtrodecidido = G.getFiltroEspacial();
         } else if (this.gaussianoInverso.isSelected()) {
 
             G = new Gaussiano(this.radioSlider.getValue(), true, new Dimension(this.size, this.size));
             G.crearFiltro();
-            this.filtro = new JInternalFrameImagen(G.getImagen());
-            filtro.setVisible(true);
-            framePrincipal.getjDesktopPanePrincipal().add(filtro);
+//            this.filtro = new JInternalFrameImagen(G.getImagen());
+//            //filtro.setVisible(true);
+//            framePrincipal.getjDesktopPanePrincipal().add(filtro);
             this.Filtrodecidido = G.getFiltroEspacial();
         }
 
         BufferedImage bi = HerramientasImagen.toBufferedImage(io);
 
         BufferedImage bnuevo = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_INT_RGB);
-        g= new GestorGrises(bi);
+        g = new GestorGrises(bi);
         this.g.obtenerImagenFrecuencias(true);
         this.g.aplicarFiltro(this.Filtrodecidido);
         bnuevo = g.obtenerImagenEspacial();
